@@ -1,7 +1,338 @@
 ﻿
 @{
-    ViewData["Title"] = "ProdutosView";
+	ViewData["Title"] = "Produtos";
 }
 
-<h2>ProdutosView</h2>
+<!-- carousel -->
+<!--Carousel Wrapper-->
+<div id="video-carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
+	<!--Indicators-->
+	<ol class="carousel-indicators">
+		<li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
+		<li data-target="#video-carousel-example" data-slide-to="1"></li>
+		<li data-target="#video-carousel-example" data-slide-to="2"></li>
+	</ol>
+	<!--/.Indicators-->
+	<!--Slides-->
+	<div class="carousel-inner" role="listbox">
+		<div class="carousel-item">
+			<video id="myVideo3" class="video-fluid" autoplay loop muted>
+				<source src="~/video/videoplayback3.mp4" type="video/mp4" />
+			</video>
+		</div>
+		<div class="carousel-item">
+			<video class="video-fluid" autoplay loop muted>
+				<source src="~/video/videoplayback2.mp4" type="video/mp4" />
+			</video>
+		</div>
+		<div class="carousel-item active">
+			<video id="myVideo" class="video-fluid" autoplay loop muted>
+				<source src="~/video/videoplayback.mp4" type="video/mp4" />
+			</video>
 
+		</div>
+	</div>
+	<!--/.Slides-->
+	<!--Controls-->
+	<a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+	<!--/.Controls-->
+</div>
+
+<!-- carousel -->
+<div class="bd-example">
+	<div id="carouselHome" class="carousel slide d-none d-md-block" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselHome" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselHome" data-slide-to="1"></li>
+			<li data-target="#carouselHome" data-slide-to="2"></li>
+			<li data-target="#carouselHome" data-slide-to="3"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<section class="section-cards mt-5">
+					<div class="container">
+						<div class="row">
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 328i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 328i Black</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 328i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 328i White</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 328i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 328i Blue</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 328i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 328i Green</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="carousel-item">
+				<section class="section-cards mt-5">
+					<div class="container">
+						<div class="row">
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/bmw 325i.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 325i Black</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/bmw 325i.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 325i White</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/bmw 325i.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 325i Blue</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/bmw 325i.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 325i Green</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="carousel-item">
+				<section class="section-cards mt-5">
+					<div class="container">
+						<div class="row">
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 320i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 320i Black</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 320i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 320i White</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 320i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 320i Blue</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw 320i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 320i Green</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="carousel-item">
+				<section class="section-cards mt-5">
+					<div class="container">
+						<div class="row">
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw330i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 330i Black</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw330i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 330i White</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw330i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 330i Blue</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+								</div>
+							</div>
+							<div class="card col-sm-6 col-md-3 ">
+								<img src="~/images/_bmw330i-979x650.jpg" alt="" class="card-img-top">
+								<div class="card-body">
+									<h2 class="card-title h5">BMW 330i Green</h2>
+									<p class="card-text">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc luctus pellentesque libero, mollis tempor elit.
+									</p>
+									<p class="card-text">
+										<a href="#" class="btn mb-5">Adquirir agora!</a>
+									</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		</div>
+		<a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" style="background-color:black;margin-right:15px" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" style="background-color:black;margin-left:15px"  aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+
+<script>
+	var vid = document.getElementById("myVideo");
+	vid.currentTime = 5;
+
+	var vid = document.getElementById("myVideo3");
+	vid.currentTime = 60;
+</script>

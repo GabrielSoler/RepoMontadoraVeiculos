@@ -34,16 +34,16 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active"  asp-controller="Home" asp-action="Index" method="get" >
+				<a class="nav-item nav-link active" asp-controller="Home" asp-action="Index" method="get">
 					Home <span class="sr-only">
 						(página
 						atual)
 					</span>
 				</a>
-				<a class="nav-item nav-link" asp-controller="Home" asp-action="Produtos" method="get" >produtos</a>
-				<a class="nav-item nav-link" asp-controller="Home" asp-action="Servicos" method="get" >serviços</a>
-				<a class="nav-item nav-link" asp-controller="Home" asp-action="Business" method="get" >nossos negócios</a>
-				<a class="nav-item nav-link" asp-controller="Home" asp-action="Contato" method="get" >contato</a>
+				<a class="nav-item nav-link" asp-controller="Home" asp-action="Produtos" method="get">produtos</a>
+				<a class="nav-item nav-link" asp-controller="Home" asp-action="Servicos" method="get">serviços</a>
+				<a class="nav-item nav-link" asp-controller="Home" asp-action="Business" method="get">nossos negócios</a>
+				<a class="nav-item nav-link" asp-controller="Home" asp-action="Contato" method="get">contato</a>
 
 			</div>
 		</div>
@@ -51,6 +51,40 @@
 
 	@RenderBody()
 
+	<!-- footer -->
+	<footer class="footer mt-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<p class="logo-text"> Infusion</p>
+					<p class="logo-text"> Soler</p>
+				</div>
+				<div class="col-md-4">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend, ante eget gravida laoreet, do
+						lor nisl cursus elit, in cursus libero libero quis elit. Aenean fringilla nec augue nec sodales.
+						Fusce ac mollis elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc molestie er
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius tincidunt lectus,
+						eget facilisis mauris porta eget. In accumsan convallis gravida. Etiam ultricies lacus ante.
+						Nam euismod eros sed tincidunt sagittis. Suspendisse vestibulum ullamcorper risus, non porta
+					</p>
+				</div>
+				<div class="col-md-2">
+					<ul class="footer-links">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Produtos</a></li>
+						<li><a href="#">Serviços</a></li>
+						<li><a href="#">Nossos negócios</a></li>
+						<li><a href="#">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 
 	<environment include="Development">

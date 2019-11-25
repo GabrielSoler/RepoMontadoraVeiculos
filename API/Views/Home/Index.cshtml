@@ -1,0 +1,91 @@
+﻿@{
+	ViewBag.Title = "API";
+}
+
+
+<div class="container">
+	<div class="row">
+
+
+		<div class="col-md-12">
+			<h4>Recursos</h4>
+			<div class="table-responsive">
+
+				<table id="mytable" class="table table-bordred table-striped">
+
+					<thead>
+
+					<th>Exemplo</th>
+					<th>Parâmetros</th>
+					<th>Descrição</th>
+
+					</thead>
+					<tbody>
+
+						<tr>
+
+							<td> @Html.ActionLink("Listar carro", "ListarCarro", "Home", new { idCarro = 1 }, null)</td>
+							<td>idCarro</td>
+							<td>Ao passar um id retorna um carro</td>
+						</tr>
+
+						<tr>
+							<td> @Html.ActionLink("Listar carros", "ListarCarros", "Home")</td>
+
+							<td>Sem parâmetros</td>
+							<td>Retorna todos os carros</td>
+						</tr>
+
+
+						<tr>
+							<td>
+								@Html.ActionLink("Inserir pedido", "InserirPedido", "Home",
+								new
+								{
+									idCarro = 1,
+									dtEntrega = "25/11/2019 19:37:22"
+								},
+							   null)
+							</td>
+
+							<td>idCarro,dtEntrega</td>
+							<td>Registra um pedido passando o identificador do pedido,Identificador do carro e a data da entrega</td>
+						</tr>
+
+						<tr>
+							<td>
+								@Html.ActionLink(
+							   "Listar pedido",
+							   "ListarPedido",
+							   "Home",
+							   new {
+								   idPedido = 1
+							   },
+							   null
+							   )
+							</td>
+
+							<td>idPedido</td>
+							<td>Ao passar um id retorna um pedido</td>
+						</tr>
+
+
+					</tbody>
+
+				</table>
+				<div class="clearfix"></div>
+				<ul class="pagination pull-right">
+					<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+</div>

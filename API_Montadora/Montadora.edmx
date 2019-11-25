@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="montadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_carro" Type="smallint" Nullable="false" />
+          <Property Name="databertura" Type="datetime" Nullable="false" />
+          <Property Name="dataentrega" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_cambio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="qtd_marchas" Type="varchar" MaxLength="1" />
+          <Property Name="modo" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="tbl_carroceria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_carros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serie" Type="tinyint" Nullable="false" />
+          <Property Name="trim" Type="tinyint" Nullable="false" />
+          <Property Name="motor" Type="tinyint" Nullable="false" />
+          <Property Name="cambio" Type="tinyint" Nullable="false" />
+          <Property Name="preco" Type="float" Nullable="false" />
+          <Property Name="unidadesestoque" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_motor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="deslocamento" Type="int" Nullable="false" />
+          <Property Name="num_cilindros" Type="tinyint" Nullable="false" />
+          <Property Name="maxpotencia" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="maxtorque" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_series">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serienum" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="tipo_carroceria" Type="tinyint" Nullable="false" />
+          <Property Name="chassis" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="tbl_trim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="tamanho_roda" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__pedido__id_carro__47DBAE45">
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="1" />
+          <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_carros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="id_carro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__cambi__44FF419A">
+          <End Role="tbl_cambio" Type="Self.tbl_cambio" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_cambio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="cambio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__motor__440B1D61">
+          <End Role="tbl_motor" Type="Self.tbl_motor" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_motor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="motor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__serie__4222D4EF">
+          <End Role="tbl_series" Type="Self.tbl_series" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_series">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="serie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carros__trim__4316F928">
+          <End Role="tbl_trim" Type="Self.tbl_trim" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_trim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="trim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_serie__tipo___398D8EEE">
+          <End Role="tbl_carroceria" Type="Self.tbl_carroceria" Multiplicity="1" />
+          <End Role="tbl_series" Type="Self.tbl_series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_carroceria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_series">
+              <PropertyRef Name="tipo_carroceria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="montadoraModelStoreContainer">
+          <EntitySet Name="pedido" EntityType="Self.pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_cambio" EntityType="Self.tbl_cambio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_carroceria" EntityType="Self.tbl_carroceria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_carros" EntityType="Self.tbl_carros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_motor" EntityType="Self.tbl_motor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_series" EntityType="Self.tbl_series" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_trim" EntityType="Self.tbl_trim" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__pedido__id_carro__47DBAE45" Association="Self.FK__pedido__id_carro__47DBAE45">
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__cambi__44FF419A" Association="Self.FK__tbl_carro__cambi__44FF419A">
+            <End Role="tbl_cambio" EntitySet="tbl_cambio" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__motor__440B1D61" Association="Self.FK__tbl_carro__motor__440B1D61">
+            <End Role="tbl_motor" EntitySet="tbl_motor" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__serie__4222D4EF" Association="Self.FK__tbl_carro__serie__4222D4EF">
+            <End Role="tbl_series" EntitySet="tbl_series" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carros__trim__4316F928" Association="Self.FK__tbl_carros__trim__4316F928">
+            <End Role="tbl_trim" EntitySet="tbl_trim" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_serie__tipo___398D8EEE" Association="Self.FK__tbl_serie__tipo___398D8EEE">
+            <End Role="tbl_carroceria" EntitySet="tbl_carroceria" />
+            <End Role="tbl_series" EntitySet="tbl_series" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="montadoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_carro" Type="Int16" Nullable="false" />
+          <Property Name="databertura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dataentrega" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tbl_carros" Relationship="Self.FK__pedido__id_carro__47DBAE45" FromRole="pedido" ToRole="tbl_carros" />
+        </EntityType>
+        <EntityType Name="tbl_cambio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="qtd_marchas" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="modo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_carros" Relationship="Self.FK__tbl_carro__cambi__44FF419A" FromRole="tbl_cambio" ToRole="tbl_carros" />
+        </EntityType>
+        <EntityType Name="tbl_carroceria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_series" Relationship="Self.FK__tbl_serie__tipo___398D8EEE" FromRole="tbl_carroceria" ToRole="tbl_series" />
+        </EntityType>
+        <EntityType Name="tbl_carros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serie" Type="Byte" Nullable="false" />
+          <Property Name="trim" Type="Byte" Nullable="false" />
+          <Property Name="motor" Type="Byte" Nullable="false" />
+          <Property Name="cambio" Type="Byte" Nullable="false" />
+          <Property Name="preco" Type="Double" Nullable="false" />
+          <Property Name="unidadesestoque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pedido" Relationship="Self.FK__pedido__id_carro__47DBAE45" FromRole="tbl_carros" ToRole="pedido" />
+          <NavigationProperty Name="tbl_cambio" Relationship="Self.FK__tbl_carro__cambi__44FF419A" FromRole="tbl_carros" ToRole="tbl_cambio" />
+          <NavigationProperty Name="tbl_motor" Relationship="Self.FK__tbl_carro__motor__440B1D61" FromRole="tbl_carros" ToRole="tbl_motor" />
+          <NavigationProperty Name="tbl_series" Relationship="Self.FK__tbl_carro__serie__4222D4EF" FromRole="tbl_carros" ToRole="tbl_series" />
+          <NavigationProperty Name="tbl_trim" Relationship="Self.FK__tbl_carros__trim__4316F928" FromRole="tbl_carros" ToRole="tbl_trim" />
+        </EntityType>
+        <EntityType Name="tbl_motor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deslocamento" Type="Int32" Nullable="false" />
+          <Property Name="num_cilindros" Type="Byte" Nullable="false" />
+          <Property Name="maxpotencia" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maxtorque" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_carros" Relationship="Self.FK__tbl_carro__motor__440B1D61" FromRole="tbl_motor" ToRole="tbl_carros" />
+        </EntityType>
+        <EntityType Name="tbl_series">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serienum" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_carroceria" Type="Byte" Nullable="false" />
+          <Property Name="chassis" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_carroceria" Relationship="Self.FK__tbl_serie__tipo___398D8EEE" FromRole="tbl_series" ToRole="tbl_carroceria" />
+          <NavigationProperty Name="tbl_carros" Relationship="Self.FK__tbl_carro__serie__4222D4EF" FromRole="tbl_series" ToRole="tbl_carros" />
+        </EntityType>
+        <EntityType Name="tbl_trim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tamanho_roda" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="tbl_carros" Relationship="Self.FK__tbl_carros__trim__4316F928" FromRole="tbl_trim" ToRole="tbl_carros" />
+        </EntityType>
+        <Association Name="FK__pedido__id_carro__47DBAE45">
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="1" />
+          <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_carros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="id_carro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__cambi__44FF419A">
+          <End Role="tbl_cambio" Type="Self.tbl_cambio" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_cambio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="cambio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_serie__tipo___398D8EEE">
+          <End Role="tbl_carroceria" Type="Self.tbl_carroceria" Multiplicity="1" />
+          <End Role="tbl_series" Type="Self.tbl_series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_carroceria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_series">
+              <PropertyRef Name="tipo_carroceria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__motor__440B1D61">
+          <End Role="tbl_motor" Type="Self.tbl_motor" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_motor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="motor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carro__serie__4222D4EF">
+          <End Role="tbl_series" Type="Self.tbl_series" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_series">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="serie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_carros__trim__4316F928">
+          <End Role="tbl_trim" Type="Self.tbl_trim" Multiplicity="1" />
+          <End Role="tbl_carros" Type="Self.tbl_carros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_trim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_carros">
+              <PropertyRef Name="trim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="montadoraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pedido" EntityType="Self.pedido" />
+          <EntitySet Name="tbl_cambio" EntityType="Self.tbl_cambio" />
+          <EntitySet Name="tbl_carroceria" EntityType="Self.tbl_carroceria" />
+          <EntitySet Name="tbl_carros" EntityType="Self.tbl_carros" />
+          <EntitySet Name="tbl_motor" EntityType="Self.tbl_motor" />
+          <EntitySet Name="tbl_series" EntityType="Self.tbl_series" />
+          <EntitySet Name="tbl_trim" EntityType="Self.tbl_trim" />
+          <AssociationSet Name="FK__pedido__id_carro__47DBAE45" Association="Self.FK__pedido__id_carro__47DBAE45">
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__cambi__44FF419A" Association="Self.FK__tbl_carro__cambi__44FF419A">
+            <End Role="tbl_cambio" EntitySet="tbl_cambio" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_serie__tipo___398D8EEE" Association="Self.FK__tbl_serie__tipo___398D8EEE">
+            <End Role="tbl_carroceria" EntitySet="tbl_carroceria" />
+            <End Role="tbl_series" EntitySet="tbl_series" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__motor__440B1D61" Association="Self.FK__tbl_carro__motor__440B1D61">
+            <End Role="tbl_motor" EntitySet="tbl_motor" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carro__serie__4222D4EF" Association="Self.FK__tbl_carro__serie__4222D4EF">
+            <End Role="tbl_series" EntitySet="tbl_series" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_carros__trim__4316F928" Association="Self.FK__tbl_carros__trim__4316F928">
+            <End Role="tbl_trim" EntitySet="tbl_trim" />
+            <End Role="tbl_carros" EntitySet="tbl_carros" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="montadoraModelStoreContainer" CdmEntityContainer="montadoraEntities">
+          <EntitySetMapping Name="pedido">
+            <EntityTypeMapping TypeName="montadoraModel.pedido">
+              <MappingFragment StoreEntitySet="pedido">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_carro" ColumnName="id_carro" />
+                <ScalarProperty Name="databertura" ColumnName="databertura" />
+                <ScalarProperty Name="dataentrega" ColumnName="dataentrega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_cambio">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_cambio">
+              <MappingFragment StoreEntitySet="tbl_cambio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="qtd_marchas" ColumnName="qtd_marchas" />
+                <ScalarProperty Name="modo" ColumnName="modo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_carroceria">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_carroceria">
+              <MappingFragment StoreEntitySet="tbl_carroceria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_carros">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_carros">
+              <MappingFragment StoreEntitySet="tbl_carros">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serie" ColumnName="serie" />
+                <ScalarProperty Name="trim" ColumnName="trim" />
+                <ScalarProperty Name="motor" ColumnName="motor" />
+                <ScalarProperty Name="cambio" ColumnName="cambio" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="unidadesestoque" ColumnName="unidadesestoque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_motor">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_motor">
+              <MappingFragment StoreEntitySet="tbl_motor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="deslocamento" ColumnName="deslocamento" />
+                <ScalarProperty Name="num_cilindros" ColumnName="num_cilindros" />
+                <ScalarProperty Name="maxpotencia" ColumnName="maxpotencia" />
+                <ScalarProperty Name="maxtorque" ColumnName="maxtorque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_series">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_series">
+              <MappingFragment StoreEntitySet="tbl_series">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serienum" ColumnName="serienum" />
+                <ScalarProperty Name="tipo_carroceria" ColumnName="tipo_carroceria" />
+                <ScalarProperty Name="chassis" ColumnName="chassis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_trim">
+            <EntityTypeMapping TypeName="montadoraModel.tbl_trim">
+              <MappingFragment StoreEntitySet="tbl_trim">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="tamanho_roda" ColumnName="tamanho_roda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
